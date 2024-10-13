@@ -60,15 +60,20 @@ const converterRemini: CommandType = {
       for (let attempt = 0; attempt < 10; attempt++) {
         jobResult = await getJobs(jobId);
 
-        if (jobResult.status === "succeeded") {
+        console.log(jobResult);
+
+        if (jobResult.data.status === "succeeded") {
           // console.log("Job selesai:", jobResult);
           await sock.sendMessage(
             chatId,
-            { image: { url: jobResult.imageUrl }, caption: "Ini gambar HD" },
+            {
+              image: { url: jobResult.data.imageUrl },
+              caption: "Ini gambar HD",
+            },
             { quoted: chat }
           );
           return;
-        } else if (jobResult.status === "failed") {
+        } else if (jobResult.data.status === "failed") {
           await sock.sendMessage(
             chatId,
             { text: "Upscale gambar gagal" },

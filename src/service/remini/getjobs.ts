@@ -1,15 +1,9 @@
 import axios from "axios";
+import BASE_URL from "../../common/api/endpoint";
 
 export default async function getJobs(jobId: string) {
   try {
-    const response = await axios.request({
-      method: "GET",
-      url: `https://api.prodia.com/v1/job/${jobId}`,
-      headers: {
-        accept: "application/json",
-        "X-Prodia-Key": "36df1530-9110-4229-b9ed-8a7c04ed18ee",
-      },
-    });
+    const response = await axios.get(`${BASE_URL}/remini/jobs/${jobId}`);
 
     return response.data;
   } catch (error) {
