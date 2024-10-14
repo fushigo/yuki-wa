@@ -1,12 +1,12 @@
 import { CommandType } from "../../common/types";
 import queryValidation from "../../helpers/queryValidation";
-import gemini from "../../service/questionai/gemini";
+import prodia from "../../service/questionai/prodia";
 import loading from "../utils/loading,";
 
-const questionAiGemini: CommandType = {
+const questionAiProdia: CommandType = {
   data: {
-    name: "gemini",
-    aliases: ["gmini"],
+    name: "prodia",
+    aliases: ["pdia"],
   },
   async execute({ chatId, chat, query, sock }) {
     const qvalid = queryValidation(query);
@@ -21,12 +21,12 @@ const questionAiGemini: CommandType = {
 
     try {
       await loading(sock, chatId, chat!);
-      const result = await gemini(query!);
-      // console.log(result);
+
+      const result = await prodia(query!);
 
       await sock.sendMessage(
         chatId,
-        { text: `${result.data}` },
+        { image: { url: result.data } },
         { quoted: chat }
       );
 
@@ -45,4 +45,4 @@ const questionAiGemini: CommandType = {
   },
 };
 
-export default questionAiGemini;
+export default questionAiProdia;
