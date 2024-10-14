@@ -5,20 +5,20 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rmdir /s /q dist && npx tsc",
+    "build": "npx tsc",
     "start": "node dist/app.js"
   },
   "author": "RizkyAndika",
   "license": "ISC",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
-    "@tobyg74/tiktok-api-dl": "^1.1.9",
+    "@tobyg74/tiktok-api-dl": "^1.2.0",
     "axios": "^1.7.7",
     "baileys": "github:WhiskeySockets/Baileys",
     "install": "^0.13.0",
     "npm": "^10.9.0",
     "pino": "^7.0.0",
     "qrcode-terminal": "^0.12.0",
-    "sharp": "^0.33.5"
+    "sharp": "0.32.6"
   }
 }
