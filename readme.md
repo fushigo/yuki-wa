@@ -5,7 +5,7 @@ Project Yuki merupakan aplikasi bot whatsapp yang dibekali beberapa tools, proje
 
 ## Change
 
-- Apabila mengalami masalah dengan module sharp saat hosting / running rubah versi module sharp di [package.json](https://github.com/fushigo/yuki-wa/blob/main/package.json) menjadi versi [0.32.6]
+- Default prefix yang digunakan adalah [.], bisa diganti pada bagian [config.json](https://github.com/fushigo/yuki-wa/blob/main/src/common/config.json)
 
 ## Instalation
 
