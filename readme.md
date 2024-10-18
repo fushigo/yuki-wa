@@ -3,6 +3,10 @@
 Project Yuki merupakan aplikasi bot whatsapp yang dibekali beberapa tools, project ini baru memasuki tahap awal dalam pengembangan dan sebisa mungkin akan terus saya kembangkan untuk kedepannya.
 **Yuki WhatsApp BOT dibuat dengan Node.js dan menggunakan [Baileys](https://github.com/WhiskeySockets/Baileys) sebagai pustaka utama**.
 
+## Added
+
+- Tambahkan file .env di root direktori dan masukkan PUBLIC_API_KEY dengan value yuki-pub-apiv1.prod-2024
+
 ## Change
 
 - Default prefix yang digunakan adalah [.], bisa diganti pada bagian [config.json](https://github.com/fushigo/yuki-wa/blob/main/src/common/config.json)

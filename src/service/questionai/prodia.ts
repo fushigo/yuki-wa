@@ -1,11 +1,9 @@
 import axios from "axios";
-import BASE_URL from "../../common/api/endpoint";
+import { PRODIA } from "../../common/api/endpoint";
 
 export default async function prodia(promp: string) {
   try {
-    const response = await axios.get(
-      `${BASE_URL}/questionai/hercai/image/${promp}`
-    );
+    const response = await axios.get(`${PRODIA}/${promp}`);
 
     return response.data;
   } catch (error) {

@@ -2,6 +2,7 @@ import converterRemini from "./converter/remini";
 import converterSticker from "./converter/sticker";
 import tiktokSoundDownloader from "./downloader/tiktok/sound";
 import tiktokVideoDownloader from "./downloader/tiktok/video";
+import questionaiDalle from "./questionai/dalle";
 import questionAiGpt from "./questionai/gpt";
 import questionAiProdia from "./questionai/prodia";
 import listDownloader from "./utils/downloader";
@@ -18,4 +19,5 @@ export default {
   converterRemini,
   questionAiGpt,
   questionAiProdia,
+  questionaiDalle,
 };

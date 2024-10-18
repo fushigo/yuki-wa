@@ -47,11 +47,29 @@ export default async function messageHandler(
 
     // Periksa apakah pesan di mulai dengan prefix
     if (chatValue.startsWith(prefix)) {
-      const existedUser = await getUserId(chatId);
+      const existedUser = await getUserId(chatId).catch(async (error) => {
+        console.log(error);
+        await sock.sendMessage(
+          chatId,
+          { text: "Sedang terjadi masalah dengan server" },
+          { quoted: chat }
+        );
+
+        return;
+      });
       if (!existedUser || existedUser.data === null) {
         try {
           const waNumber = await extractPhoneNumber(userId);
-          await createUser(chatId, waNumber);
+          await createUser(chatId, waNumber).catch(async (error) => {
+            console.log(error);
+            await sock.sendMessage(
+              chatId,
+              { text: "Sedang terjadi masalah dengan server" },
+              { quoted: chat }
+            );
+
+            return;
+          });
 
           const args = chatValue!.slice(prefix.length).trim().split(/ +/);
           commandHanlder({

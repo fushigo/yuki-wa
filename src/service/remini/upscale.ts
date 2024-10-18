@@ -1,5 +1,5 @@
 import axios from "axios";
-import BASE_URL from "../../common/api/endpoint";
+import { OPTIONS, REMINI } from "../../common/api/endpoint";
 
 export default async function reminiUpscale(base64: string) {
   const payload = {
@@ -7,13 +7,7 @@ export default async function reminiUpscale(base64: string) {
   };
 
   try {
-    const response = await axios.post(`${BASE_URL}/remini`, payload, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "User-Agent": "Yuki/1.0.0",
-      },
-    });
+    const response = await axios.post(`${REMINI}`, payload, OPTIONS);
 
     return response.data;
   } catch (error) {
