@@ -3,7 +3,7 @@ import { CommandType } from "../../common/types";
 const listDownloader: CommandType = {
   data: {
     name: "listdownloader",
-    aliases: ["downloader"],
+    aliases: ["downloader", "dl"],
   },
 
   async execute({ chatId, chat, sock }) {

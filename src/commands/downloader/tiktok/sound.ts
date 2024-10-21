@@ -23,7 +23,7 @@ const tiktokSoundDownloader: CommandType = {
 
     try {
       await loading(sock, chatId, chat!);
-      await Tiktok.Downloader(query!, { version: "v3" }).then(
+      await Tiktok.Downloader(query!, { version: "v2" }).then(
         async (result) => {
           const soundUrl = result.result?.music;
 

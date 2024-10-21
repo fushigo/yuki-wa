@@ -60,7 +60,7 @@ const converterRemini: CommandType = {
       for (let attempt = 0; attempt < 10; attempt++) {
         jobResult = await getJobs(jobId);
 
-        console.log(jobResult);
+        // console.log(jobResult);
 
         if (jobResult.data.status === "succeeded") {
           // console.log("Job selesai:", jobResult);

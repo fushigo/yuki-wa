@@ -11,6 +11,7 @@ const help: CommandType = {
       
 1. *.downloader* Menampilkan list downloader yang tersedia
 2. *.converter* Menampilkan list converter yang tersedia
+3. *.questionai* Menampilkan list question ai yang tersedia
 
 ~Yuki BOT⭐`,
     };
