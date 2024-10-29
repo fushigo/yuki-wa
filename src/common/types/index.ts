@@ -13,6 +13,7 @@ export interface CommandHandlerType {
   isGroup: boolean;
   userId: string;
   chatValue: string;
+  waNumber: string;
 }
 
 export interface TypeCommandParams {

@@ -8,15 +8,20 @@ import questionAiProdia from "./questionai/prodia";
 import listConverter from "./utils/converter";
 import listDownloader from "./utils/downloader";
 import help from "./utils/help";
+import listModerator from "./utils/group";
 import ping from "./utils/ping";
 import listQuestionAi from "./utils/questionai";
+import vcard from "./utils/vcard";
+import groupHidetag from "./group/member/hidetag";
 
 export default {
   ping,
   help,
+  vcard,
   listDownloader,
   listConverter,
   listQuestionAi,
+  listModerator,
   tiktokVideoDownloader,
   tiktokSoundDownloader,
   converterSticker,
@@ -24,4 +29,5 @@ export default {
   questionAiGpt,
   questionAiProdia,
   questionaiDalle,
+  groupHidetag,
 };

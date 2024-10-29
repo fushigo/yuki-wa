@@ -44,10 +44,12 @@ export default async function messageHandler(
     const userId: string = isGroup
       ? chat.key.participant!
       : chat.key.remoteJid!;
+    // Konversi userId menjadi nomor whatsapp
+    const waNumber = await extractPhoneNumber(userId);
 
     // Periksa apakah pesan di mulai dengan prefix
     if (chatValue.startsWith(prefix)) {
-      const existedUser = await getUserId(chatId).catch(async (error) => {
+      const existedUser = await getUserId(waNumber).catch(async (error) => {
         console.log(error);
         await sock.sendMessage(
           chatId,
@@ -55,12 +57,12 @@ export default async function messageHandler(
           { quoted: chat }
         );
 
-        return;
+        return null;
       });
+
       if (!existedUser || existedUser.data === null) {
         try {
-          const waNumber = await extractPhoneNumber(userId);
-          await createUser(chatId, waNumber).catch(async (error) => {
+          await createUser(waNumber).catch(async (error) => {
             console.log(error);
             await sock.sendMessage(
               chatId,
@@ -68,7 +70,7 @@ export default async function messageHandler(
               { quoted: chat }
             );
 
-            return;
+            return null;
           });
 
           const args = chatValue!.slice(prefix.length).trim().split(/ +/);
@@ -80,6 +82,7 @@ export default async function messageHandler(
             isGroup,
             userId,
             chatValue,
+            waNumber,
           });
           return;
         } catch (error) {
@@ -92,7 +95,16 @@ export default async function messageHandler(
       }
 
       const args = chatValue!.slice(prefix.length).trim().split(/ +/);
-      commandHanlder({ args, sock, chatId, chat, isGroup, userId, chatValue });
+      commandHanlder({
+        args,
+        sock,
+        chatId,
+        chat,
+        isGroup,
+        userId,
+        chatValue,
+        waNumber,
+      });
       return;
     }
   }

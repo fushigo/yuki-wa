@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 // const BASE_URL = "http://localhost:5019";
 const BASE_URL = "https://yuki-api.vercel.app";
 
@@ -6,7 +10,7 @@ const OPTIONS = {
     Accept: "application/json",
     "Content-Type": "application/json",
     "User-Agent": "Yuki/1.0.0",
-    "x-api-key": process.env.API_PUBLIC_KEY,
+    "x-api-key": process.env.PUBLIC_API_KEY!,
   },
 };
 

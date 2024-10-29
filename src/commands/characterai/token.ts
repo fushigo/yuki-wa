@@ -21,9 +21,6 @@ const tokenCharacterAi: CommandType = {
     }
 
     try {
-        
-    } catch (error) {
-        
-    }
+    } catch (error) {}
   },
 };

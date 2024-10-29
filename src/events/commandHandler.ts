@@ -11,6 +11,7 @@ export default async function commandHanlder({
   isGroup,
   userId,
   chatValue,
+  waNumber,
 }: CommandHandlerType) {
   if (args.length < 0 || args[0] === "") {
     return await sock.sendMessage(
@@ -35,20 +36,24 @@ export default async function commandHanlder({
 
   if (command) {
     try {
-      await createActivity(chatId, command.data.name, chatValue).catch(
-        async (error) => {
-          await sock.sendMessage(
-            chatId,
-            {
-              text: "Terjadi kesalahan dengan server!",
-            },
-            { quoted: chat }
-          );
+      await createActivity(
+        chatId,
+        waNumber,
+        command.data.name,
+        chatValue
+      ).catch(async (error) => {
+        await sock.sendMessage(
+          chatId,
+          {
+            text: "Terjadi kesalahan dengan server!",
+          },
+          { quoted: chat }
+        );
 
-          console.log(error);
-          return;
-        }
-      );
+        console.log(error);
+        return null;
+      });
+
       await command.execute({
         chatId,
         chat,
