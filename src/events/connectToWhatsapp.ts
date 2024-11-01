@@ -9,7 +9,7 @@ import { Logger } from "pino";
 import logger from "../helpers/logger";
 import connectionUpdate from "./connectionUpdate";
 import eventRejectCall from "./rejectCall";
-import messageHandler from "./messageHanlder";
+import messageHandler from "./messageHandler";
 
 // Nama folder / lokasi session
 const sessionName = "session";

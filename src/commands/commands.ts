@@ -13,11 +13,13 @@ import ping from "./utils/ping";
 import listQuestionAi from "./utils/questionai";
 import vcard from "./utils/vcard";
 import groupHidetag from "./group/member/hidetag";
+import spill from "./utils/spill";
 
 export default {
   ping,
   help,
   vcard,
+  spill,
   listDownloader,
   listConverter,
   listQuestionAi,
